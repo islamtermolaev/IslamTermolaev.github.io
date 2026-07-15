@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impressum | Islam Termolaev</title>
+  <meta name="description" content="Impressum des Developer Portfolios von Islam Termolaev.">
+  <meta name="author" content="Islam Termolaev">
+  <meta name="theme-color" content="#07111f">
+  <meta name="robots" content="noindex,follow">
+  <style>
+    /* =====================================================
+       DESIGN: Farben, Schrift, Abstände und globale Werte
+       Hier kannst du schnell das Grunddesign ändern.
+       Wichtig für Farben: --bg, --accent, --accent-2, --accent-3
+       Wichtig für Seitenbreite: --max
+       ===================================================== */
+    :root {
+      --bg: #07111f;
+      --bg-deep: #050914;
+      --panel: rgba(255,255,255,.07);
+      --panel-strong: rgba(255,255,255,.12);
+      --text: #eef6ff;
+      --muted: #a9b8cd;
+      --soft: #d6e4f5;
+      --line: rgba(255,255,255,.16);
+      --accent: #82e6ff;
+      --accent-2: #5fb6ff;
+      --accent-3: #e9f7ff;
+      --purple: #a78bfa;
+      --purple-2: #7c3aed;
+      --purple-soft: rgba(167,139,250,.16);
+      --shadow: 0 24px 70px rgba(0,0,0,.42);
+      --radius: 26px;
+      --radius-sm: 16px;
+      --max: 1180px;
+      --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
+    /* BASIS: Allgemeine Grundregeln für die komplette Seite */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 6%, rgba(130,230,255,.17), transparent 28rem),
+        radial-gradient(circle at 92% 16%, rgba(95,182,255,.13), transparent 28rem),
+        radial-gradient(circle at 82% 72%, rgba(167,139,250,.14), transparent 30rem),
+        radial-gradient(circle at 45% 88%, rgba(233,247,255,.08), transparent 30rem),
+        linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 38%, #050915 100%);
+      font-family: var(--font);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.032) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.032) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.65), transparent 78%);
+      z-index: -4;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .08;
+      background: repeating-linear-gradient(0deg, #fff 0 1px, transparent 1px 5px);
+      mix-blend-mode: overlay;
+      z-index: 200;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img, svg { max-width: 100%; display: block; }
+    p { color: var(--muted); line-height: 1.75; margin: 0; }
+    strong { color: var(--text); }
+    code { font-family: var(--mono); color: var(--accent); }
+    ::selection { background: rgba(167,139,250,.32); color: #fff; }
+
+    .skip-link {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      transform: translateY(-150%);
+      background: var(--text);
+      color: #08111f;
+      padding: .7rem 1rem;
+      border-radius: 999px;
+      z-index: 999;
+      font-weight: 800;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -3;
+      opacity: .35;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,.12) 0 1px, transparent 1px 100%),
+        radial-gradient(circle at 74% 35%, rgba(255,255,255,.10) 0 1px, transparent 1px 100%),
+        radial-gradient(circle at 41% 74%, rgba(255,255,255,.08) 0 1px, transparent 1px 100%);
+      background-size: 120px 120px, 180px 180px, 260px 260px;
+      animation: drift 28s linear infinite;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 4px;
+      z-index: 500;
+      background: rgba(255,255,255,.08);
+    }
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+      box-shadow: 0 0 24px rgba(130,230,255,.5);
+    }
+
+    /* NAVIGATION: Obere feste Menüleiste */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 120;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(180deg, rgba(5,9,20,.86), rgba(5,9,20,.55));
+      border-bottom: 1px solid rgba(255,255,255,.09);
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 28px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 68px;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-grid;
+      grid-template-columns: 42px auto;
+      align-items: center;
+      gap: .8rem;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(130,230,255,.26), rgba(167,139,250,.18), rgba(95,182,255,.14)),
+        rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+      font-weight: 900;
+      letter-spacing: -.05em;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: .73rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 52vw;
+    }
+    .brand b { display:block; letter-spacing: .02em; }
+
+    .nav-toggle {
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.07);
+      color: var(--text);
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      position: fixed;
+      inset: 72px 14px auto 14px;
+      display: none;
+      flex-direction: column;
+      padding: .7rem;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 22px;
+      background: rgba(8,17,31,.96);
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links.open { display: flex; }
+    .nav-links a {
+      padding: .85rem 1rem;
+      color: var(--muted);
+      border-radius: 14px;
+      font-weight: 720;
+    }
+    .nav-links a:hover, .nav-links a:focus, .nav-links a.active {
+      color: var(--text);
+      background: rgba(255,255,255,.08);
+      outline: none;
+    }
+
+    /* BUTTONS: Alle runden Buttons, z.B. Kontakt und Projekte */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      min-height: 46px;
+      padding: .86rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      color: var(--text);
+      background: rgba(255,255,255,.07);
+      font-weight: 830;
+      box-shadow: 0 10px 30px rgba(0,0,0,.16);
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); background: rgba(255,255,255,.11); border-color: rgba(130,230,255,.35); }
+    .btn.primary { background: linear-gradient(135deg, rgba(130,230,255,.24), rgba(167,139,250,.18), rgba(95,182,255,.16)); border-color: rgba(167,139,250,.35); }
+    .btn.ghost { color: var(--muted); }
+
+    .container {
+      width: min(var(--max), calc(100% - 28px));
+      margin: 0 auto;
+    }
+
+    /* ABSCHNITTE: Abstand oben/unten für jede große Sektion */
+    .scene {
+      position: relative;
+      padding: 82px 0;
+    }
+
+    /* HERO-BEREICH: Erste große Startfläche der Seite */
+    .hero {
+      min-height: calc(100svh - 68px);
+      display: grid;
+      align-items: center;
+      padding: 42px 0 76px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      width: max-content;
+      max-width: 100%;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.07);
+      color: var(--soft);
+      padding: .5rem .78rem;
+      border-radius: 999px;
+      font-size: .84rem;
+      font-weight: 780;
+      letter-spacing: .02em;
+    }
+
+    /* TITEL: Hier kannst du die Größe des großen Hero-Titels anpassen.
+       Beispiel kleiner: font-size: clamp(2rem, 5vw, 4rem);
+       Developer Portfolio bleibt durch white-space: nowrap auf Desktop in einer Zeile. */
+    h1, h2, h3 { margin: 0; line-height: 1.04; letter-spacing: -.055em; }
+    h1 {
+      font-size: clamp(2.15rem, 5.4vw, 4.15rem);
+      max-width: 20ch;
+      text-wrap: balance;
+    }
+    h1 .accent-word {
+      display: inline-block;
+      color: transparent;
+      background: linear-gradient(120deg, var(--accent), #fff, var(--purple), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      white-space: nowrap;
+      filter: drop-shadow(0 10px 34px rgba(167,139,250,.14));
+    }
+
+    /* HERO-TEXT: Untertitel unter dem großen Namen */
+    .lead {
+      font-size: clamp(1.05rem, 3.3vw, 1.38rem);
+      max-width: 66ch;
+      color: #d9e7f8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: .5rem;
+    }
+
+    /* PROFILBILD-KARTE: Rechte Karte mit Bild und Mini-Terminal */
+    .cinema-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.16);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04)),
+        rgba(255,255,255,.04);
+      box-shadow: var(--shadow);
+    }
+
+    .screen {
+      min-height: 410px;
+      padding: 1rem;
+      display: grid;
+      align-content: end;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(130,230,255,.20), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    }
+
+    .profile-stage {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 245px;
+      padding: 1.1rem 1rem .65rem;
+      isolation: isolate;
+    }
+
+    .profile-stage::before {
+      content: "";
+      position: absolute;
+      width: min(78%, 310px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(130,230,255,.22), transparent 62%),
+        conic-gradient(from 140deg, rgba(130,230,255,.0), rgba(130,230,255,.34), rgba(95,182,255,.30), rgba(130,230,255,.0));
+      filter: blur(2px);
+      opacity: .92;
+      z-index: -1;
+      animation: slowSpin 18s linear infinite;
+    }
+
+    /* PROFILBILD: Größe/Rahmen des runden Bildes */
+    .profile-photo-wrap {
+      position: relative;
+      width: min(58vw, 260px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      padding: 7px;
+      background: linear-gradient(135deg, rgba(130,230,255,.78), rgba(167,139,250,.36), rgba(255,255,255,.12), rgba(95,182,255,.68));
+      box-shadow: 0 26px 74px rgba(0,0,0,.42), 0 0 28px rgba(167,139,250,.16), 0 0 0 1px rgba(255,255,255,.16);
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.08);
+    }
+
+    .screen-caption {
+      padding: 1.15rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(5,9,20,.55);
+    }
+
+    .screen-caption .role {
+      display: block;
+      color: var(--accent);
+      font-weight: 850;
+      margin-bottom: .35rem;
+    }
+
+    .terminal {
+      margin-top: 1rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.32);
+      overflow: hidden;
+      font-family: var(--mono);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.03);
+    }
+
+    .terminal-top {
+      display: flex;
+      gap: .35rem;
+      padding: .72rem .85rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.3); }
+    .terminal-body { padding: .9rem; color: var(--soft); font-size: .86rem; }
+    .terminal-line { display:block; margin: .3rem 0; }
+    .cursor { color: var(--accent); animation: blink 1s steps(2,start) infinite; }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: .75rem;
+      margin-top: 1rem;
+    }
+
+    /* KURZPROFIL-KACHELN:
+       Desktop: links im Hero-Bereich unter den Buttons.
+       Mobil: unter dem Profilbild in der Profilkarte. */
+    .desktop-stats { display: none; }
+    .mobile-stats { display: grid; }
+
+    .profile-stats {
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      margin: .8rem 0 1rem;
+    }
+
+    .stat {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      padding: .85rem;
+    }
+    .stat b { display:block; font-size: 1.05rem; }
+    .stat span { color: var(--muted); font-size: .82rem; }
+
+    /* SECTION-HEAD: Überschrift + kurzer Text am Anfang jeder Sektion */
+    .section-head {
+      display: grid;
+      gap: .8rem;
+      margin-bottom: 1.45rem;
+    }
+    .section-head h2 {
+      font-size: clamp(2rem, 5.2vw, 4.2rem);
+      max-width: 17ch;
+    }
+    .section-head p {
+      max-width: 72ch;
+      font-size: 1.02rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .glass {
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035)),
+        linear-gradient(135deg, rgba(130,230,255,.035), rgba(167,139,250,.045)),
+        rgba(255,255,255,.035);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 46px rgba(0,0,0,.22);
+    }
+
+    .identity-card {
+      padding: 1.35rem;
+    }
+    .identity-card h3, .project-card h3, .skill-card h3, .timeline-card h3 {
+      font-size: 1.35rem;
+      letter-spacing: -.03em;
+      margin-bottom: .72rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-top: 1rem;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      padding: .48rem .7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--soft);
+      font-size: .84rem;
+      font-weight: 740;
+    }
+
+    /* TIMELINE: Lebenslauf-/Werdegang-Karten */
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.4rem;
+      isolation: isolate;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), var(--purple), rgba(255,255,255,.12), var(--accent-2));
+      opacity: .48;
+      z-index: 0;
+    }
+    .timeline-card {
+      position: relative;
+      padding: 1.15rem 1.15rem 1.15rem 3.1rem;
+      z-index: 1;
+    }
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      top: 1.35rem;
+      left: 10px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(167,139,250,.16), 0 0 30px rgba(130,230,255,.45), 0 0 22px rgba(167,139,250,.32);
+      z-index: 3;
+    }
+    .timeline-card time {
+      color: var(--accent);
+      font-family: var(--mono);
+      font-weight: 850;
+      font-size: .88rem;
+      letter-spacing: .03em;
+    }
+
+    /* PROJEKTFILTER: Buttons über den Projektkarten */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin: 1.1rem 0 1.2rem;
+    }
+    .filter-btn {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      padding: .65rem .85rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      color: var(--text);
+      border-color: rgba(167,139,250,.35);
+      background: linear-gradient(135deg, rgba(130,230,255,.10), rgba(167,139,250,.14));
+    }
+
+    /* PROJEKTE & SKILLS: Karten-Raster */
+    .project-grid, .skill-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      padding: 1.18rem;
+      transition: transform .2s ease, border-color .2s ease, opacity .2s ease;
+    }
+    .project-card:hover { transform: translateY(-4px); border-color: rgba(130,230,255,.35); }
+    .project-card.hide { display:none; }
+    .project-card .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin: .9rem 0 0;
+    }
+    .pill {
+      display: inline-flex;
+      padding: .35rem .55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.055);
+      color: var(--soft);
+      font-family: var(--mono);
+      font-size: .73rem;
+    }
+    .project-status {
+      margin-top: .9rem;
+      color: var(--accent);
+      font-weight: 850;
+      font-size: .9rem;
+    }
+
+    .skill-card {
+      padding: 1.15rem;
+    }
+    .skill-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .75rem;
+      align-items: center;
+      margin: .85rem 0;
+      color: var(--soft);
+    }
+    .level {
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: .78rem;
+      white-space: nowrap;
+    }
+
+    .quote-card {
+      padding: 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-card p {
+      color: #dcecff;
+      font-size: clamp(1.15rem, 3.2vw, 1.55rem);
+      line-height: 1.55;
+      letter-spacing: -.02em;
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .contact-card {
+      padding: 1.25rem;
+    }
+    .contact-list {
+      display: grid;
+      gap: .7rem;
+      margin-top: 1rem;
+    }
+    .contact-list a, .contact-list span {
+      padding: .8rem .9rem;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      background: rgba(255,255,255,.055);
+      color: var(--soft);
+      display: block;
+      word-break: break-word;
+    }
+
+    /* RECHTLICHES: Impressum, Datenschutz und Footer */
+    footer {
+      border-top: 1px solid rgba(255,255,255,.1);
+      background: rgba(0,0,0,.18);
+      padding: 54px 0 36px;
+    }
+    .legal-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .legal-card {
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      padding: 1.15rem;
+    }
+    .legal-card h2 {
+      font-size: 1.35rem;
+      margin-bottom: .75rem;
+      letter-spacing: -.03em;
+    }
+    .legal-card p { font-size: .92rem; }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-top: 1.2rem;
+    }
+    .footer-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: .72rem .95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.055);
+      color: var(--soft);
+      font-weight: 800;
+    }
+    .footer-links a:hover, .footer-links a:focus {
+      color: var(--text);
+      border-color: rgba(179,136,255,.38);
+      background: rgba(179,136,255,.12);
+      outline: none;
+    }
+
+    .footer-bottom {
+      margin-top: 1.4rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: .75rem;
+      font-size: .9rem;
+    }
+
+    /* ANIMATIONEN: Elemente erscheinen beim Scrollen
+       WICHTIGER FIX:
+       Inhalte sind standardmäßig sichtbar. Erst wenn JavaScript und
+       IntersectionObserver sicher laufen, aktiviert die Klasse
+       .reveal-ready die Einblend-Animation. Dadurch verschwinden
+       Bereiche mobil nicht mehr, wenn ein Browser die Animation nicht lädt. */
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    html.reveal-ready .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    html.reveal-ready .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes drift { to { background-position: 120px 120px, -180px 180px, 260px -260px; } }
+    @keyframes slowSpin { to { transform: rotate(360deg); } }
+
+    /* BARRIEREFREIHEIT: Animationen reduzieren, wenn Nutzer das eingestellt haben */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* MOBILE-FIX: Auf Smartphones bleiben alle Inhalte sichtbar.
+       Die Scroll-Reveal-Animation wird mobil bewusst deaktiviert,
+       damit von Profil bis Impressum nichts unsichtbar bleibt. */
+    @media (max-width: 759px) {
+      html.reveal-ready .reveal,
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .hero {
+        min-height: auto;
+        overflow: visible;
+      }
+      .scene {
+        padding: 58px 0;
+      }
+      h1 {
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 430px) {
+      h1 {
+        font-size: clamp(2rem, 10vw, 2.9rem);
+      }
+      h1 .accent-word {
+        white-space: normal;
+      }
+    }
+
+
+    /* TIMELINE-ANIMATION:
+       Die Timeline-Karten erscheinen nacheinander in chronologischer Reihenfolge:
+       2013 -> 2015-2018 -> 2016-2017 -> 2018-2020 -> 2024 -> 2026.
+       Wichtig: Ohne JavaScript bleiben alle Karten sichtbar. */
+    .timeline::after {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 0;
+      width: 2px;
+      height: 0;
+      border-radius: 999px;
+      pointer-events: none;
+      opacity: 0;
+      background: linear-gradient(180deg, var(--accent), var(--purple), var(--accent-2));
+      box-shadow: 0 0 22px rgba(130,230,255,.34), 0 0 30px rgba(167,139,250,.22);
+      transition: height 1.85s ease, opacity .28s ease;
+      z-index: 0;
+    }
+    .timeline.timeline-playing::after {
+      height: 100%;
+      opacity: .92;
+    }
+    html.timeline-sequence-ready .timeline-card {
+      opacity: 0 !important;
+      transform: translateY(24px) scale(.96) !important;
+      filter: blur(10px);
+      transition:
+        opacity .55s ease,
+        transform .68s cubic-bezier(.2,.9,.2,1.12),
+        filter .68s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+    }
+    html.timeline-sequence-ready .timeline-card.timeline-pop {
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
+      filter: blur(0);
+      border-color: rgba(130,230,255,.26);
+      box-shadow: 0 20px 54px rgba(0,0,0,.28), 0 0 34px rgba(167,139,250,.09);
+    }
+    html.timeline-sequence-ready .timeline-card.timeline-pop::before {
+      transform-origin: center;
+      animation: timelineDotPop .78s cubic-bezier(.2,.9,.2,1.25) both;
+    }
+    @keyframes timelineDotPop {
+      0% {
+        transform: scale(.35);
+        box-shadow: 0 0 0 0 rgba(130,230,255,.0), 0 0 0 rgba(167,139,250,.0);
+      }
+      58% {
+        transform: scale(1.38);
+        box-shadow: 0 0 0 12px rgba(130,230,255,.14), 0 0 36px rgba(167,139,250,.48);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(167,139,250,.16), 0 0 30px rgba(130,230,255,.45), 0 0 22px rgba(167,139,250,.32);
+      }
+    }
+    @media (min-width: 980px) {
+      .timeline::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      html.timeline-sequence-ready .timeline-card:nth-child(odd):not(.timeline-pop) {
+        transform: translateX(-44px) scale(.96) !important;
+      }
+      html.timeline-sequence-ready .timeline-card:nth-child(even):not(.timeline-pop) {
+        transform: translateX(44px) scale(.96) !important;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .timeline::after {
+        display: none;
+      }
+      html.timeline-sequence-ready .timeline-card {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+      }
+    }
+
+
+    /* RESPONSIVE DESIGN: Ab Tablet-Breite wird das Layout breiter */
+    @media (min-width: 760px) {
+      .nav-toggle { display: none; }
+      .nav-links {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        background: transparent;
+        box-shadow: none;
+        border: 0;
+        padding: 0;
+        inset: auto;
+      }
+      .nav-links a { padding: .62rem .78rem; font-size: .92rem; }
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(320px, .75fr);
+        align-items: center;
+        gap: 2rem;
+      }
+      .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .project-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .skill-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .contact-grid { grid-template-columns: 1.1fr .9fr; }
+      .legal-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .stat-row { grid-template-columns: repeat(4, minmax(0,1fr)); }
+      .desktop-stats { display: grid; }
+      .mobile-stats { display: none; }
+      .profile-stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+
+    /* DESKTOP-LAYOUT: Timeline und Projektkarten werden größer verteilt
+       Timeline-Logik Desktop:
+       Die Karten bleiben inhaltlich nur so hoch wie ihr Text.
+       Statt künstlich große Karten zu erzeugen, läuft die Timeline im normalen Dokumentfluss:
+       Karte 1 links, Karte 2 rechts darunter, Karte 3 links darunter usw.
+       Dadurch beginnt die nächste Karte erst, nachdem die vorherige Karte beendet ist. */
+    @media (min-width: 980px) {
+      .timeline {
+        display: block;
+        position: relative;
+      }
+      .timeline::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .timeline-card {
+        width: calc(50% - 2.35rem);
+        margin-bottom: clamp(2.4rem, 4.2vw, 4rem);
+        padding: 1.35rem 1.45rem;
+      }
+      .timeline-card:last-child {
+        margin-bottom: 0;
+      }
+      .timeline-card:nth-child(odd) {
+        margin-right: calc(50% + 2.35rem);
+        margin-left: 0;
+        text-align: right;
+      }
+      .timeline-card:nth-child(even) {
+        margin-left: calc(50% + 2.35rem);
+        margin-right: 0;
+        text-align: left;
+      }
+      .timeline-card::before {
+        top: 1.75rem;
+        left: auto;
+        right: calc(-2.35rem - 9px);
+      }
+      .timeline-card:nth-child(even)::before {
+        left: calc(-2.35rem - 9px);
+        right: auto;
+      }
+      .project-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    }
+  
+
+    /* RECHTLICHE UNTERSEITEN: Impressum und Datenschutz */
+    .legal-subpage-main {
+      min-height: calc(100vh - 68px);
+      padding: 64px 0 82px;
+    }
+    .legal-subpage-card {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: clamp(1.15rem, 3vw, 2rem);
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035)),
+        rgba(255,255,255,.035);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 46px rgba(0,0,0,.22);
+    }
+    .legal-subpage-card h1 {
+      max-width: none;
+      font-size: clamp(2.2rem, 6vw, 4.3rem);
+      margin-bottom: 1rem;
+    }
+    .legal-subpage-card h2 {
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      margin: 1.6rem 0 .7rem;
+      max-width: none;
+    }
+    .legal-subpage-card p,
+    .legal-subpage-card li {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .legal-subpage-card ul {
+      margin: .75rem 0 0;
+      padding-left: 1.2rem;
+    }
+    .legal-subpage-card a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .legal-note {
+      margin-top: 1.2rem;
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(179,136,255,.24);
+      background: rgba(179,136,255,.08);
+    }
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Seitennavigation">
+      <a class="brand" href="index.html" aria-label="Zurück zur Startseite">
+        <span class="brand-mark">IT</span>
+        <span>
+          <b>Islam Termolaev</b>
+          <small>Developer Portfolio · Fachinformatiker AE</small>
+        </span>
+      </a>
+      <div class="nav-links" style="display:flex; position:static; flex-direction:row; background:transparent; box-shadow:none; border:0; padding:0; inset:auto;">
+        <a href="index.html">Portfolio</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="legal-subpage-main">
+    <div class="container">
+      <article class="legal-subpage-card">
+        <span class="eyebrow">Rechtliches</span>
+        <h1>Impressum</h1>
+        <p><strong>Angaben gemäß § 5 DDG</strong></p>
+
+        <h2>Verantwortlich</h2>
+        <p>
+          Islam Termolaev<br>
+          Lünen, Nordrhein-Westfalen<br>
+          Deutschland
+        </p>
+
+        <h2>Kontakt</h2>
+        <p>
+          E-Mail: <a href="mailto:Islam_termolaev@hotmail.com">Islam_termolaev@hotmail.com</a><br>
+          Telefon: <a href="tel:+491741828948">0174 1828948</a>
+        </p>
+
+        <div class="legal-note">
+          <p>
+            Hinweis zur Anschrift: Diese Seite ist ein persönliches Bewerbungsportfolio. Eine private Wohnanschrift wird aus Datenschutzgründen nicht öffentlich auf der Portfolio-Seite angezeigt. Bei einem berechtigten rechtlichen Anliegen kann die Kontaktaufnahme über die oben genannte E-Mail-Adresse erfolgen.
+          </p>
+        </div>
+
+        <h2>Haftung für Inhalte</h2>
+        <p>
+          Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird keine Gewähr übernommen.
+        </p>
+
+        <h2>Haftung für Links</h2>
+        <p>
+          Diese Website kann Links zu externen Websites enthalten. Auf deren Inhalte besteht kein Einfluss. Für externe Inhalte sind die jeweiligen Anbieter verantwortlich.
+        </p>
+
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links" aria-label="Rechtliche Links">
+        <a href="index.html">Zurück zum Portfolio</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutzerklärung</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Islam Termolaev</span>
+        <span>Rechtliche Unterseite</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const progressBar = document.getElementById('progressBar');
+    const updateProgress = () => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const progress = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+      if (progressBar) progressBar.style.width = progress + '%';
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+    const year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
